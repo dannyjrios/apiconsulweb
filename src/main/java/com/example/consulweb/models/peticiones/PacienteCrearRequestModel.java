@@ -1,6 +1,6 @@
 package com.example.consulweb.models.peticiones;
 
-public class PersonaCrearRequestModel {
+public class PacienteCrearRequestModel {
     //recibe los name que vienen del formulario
 
     private String nombre;
