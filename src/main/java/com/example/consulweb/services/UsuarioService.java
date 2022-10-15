@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.consulweb.data.entidades.UsuarioEntity;
-import com.example.consulweb.data.repositorios.IUsuarioRepository;
+import com.example.consulweb.data.repositorios.IUsuarioReposity;
 import com.example.consulweb.shared.UsuarioDto;
 
 
@@ -20,7 +20,7 @@ public class UsuarioService implements IUsuarioService{
     ModelMapper modelMapper;
 
     @Autowired
-    IUsuarioRepository iUsuarioRepository;
+    IUsuarioReposity iUsuarioRepository;
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;

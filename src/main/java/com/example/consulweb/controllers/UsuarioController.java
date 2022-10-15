@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.consulweb.models.peticiones.UsuarioCrearRequestModel;
-import com.example.consulweb.models.respuestas.UsuarioDataRestModel;
+import com.example.consulweb.models.peticiones.UsuarioCrear;
+import com.example.consulweb.models.respuestas.UsuarioDataResCrear;
 import com.example.consulweb.services.IUsuarioService;
 import com.example.consulweb.shared.UsuarioDto;
 
@@ -25,29 +25,46 @@ public class UsuarioController {
         IUsuarioService iUsuarioService;
        
         @GetMapping
-        public UsuarioDataRestModel leerUsuario(){
+        public UsuarioDataResCrear leerUsuario(){
 
             String username="dannyr";
  
             UsuarioDto usuarioDto=iUsuarioService.leerUsuario(username);
 
-            UsuarioDataRestModel usuarioDataRestModel=modelMapper.map(usuarioDto, UsuarioDataRestModel.class);
+            UsuarioDataResCrear usuarioDataResCrear= modelMapper.map(usuarioDto, UsuarioDataResCrear.class);
 
-            return usuarioDataRestModel;
+
+            return usuarioDataResCrear;
+
+            //UsuarioDataRestModel usuarioDataRestModel=modelMapper.map(usuarioDto, UsuarioDataRestModel.class);
+
+            //return usuarioDataRestModel;
         }
     
         @PostMapping
-        public UsuarioDataRestModel crearUsuario(@RequestBody UsuarioCrearRequestModel usuarioCrearRequestModel){
+        public UsuarioDataResCrear crearUsuario(@RequestBody UsuarioCrear usuarioCrear) {
+    
+            UsuarioDto usuarioCrearDto= modelMapper.map(usuarioCrear, UsuarioDto.class);
+    
+            UsuarioDto usuarioDto= iUsuarioService.crearUsuario(usuarioCrearDto);
+    
+            UsuarioDataResCrear usuarioDataResCrear= modelMapper.map(usuarioDto, UsuarioDataResCrear.class);
+    
+            return usuarioDataResCrear;
+        }
+
+       //@PostMapping
+        //public UsuarioDataRestModel crearUsuario(@RequestBody UsuarioCrearRequestModel usuarioCrearRequestModel){
             
             //mapeando informacion
-            UsuarioDto usuarioCreaDto=modelMapper.map(usuarioCrearRequestModel, UsuarioDto.class);
+        //    UsuarioDto usuarioCreaDto=modelMapper.map(usuarioCrearRequestModel, UsuarioDto.class);
             
-            UsuarioDto usuarioDto=iUsuarioService.crearUsuario(usuarioCreaDto);
+         //   UsuarioDto usuarioDto=iUsuarioService.crearUsuario(usuarioCreaDto);
 
-            UsuarioDataRestModel usuarioDataRestModel=modelMapper.map(usuarioDto, UsuarioDataRestModel.class);
+         //   UsuarioDataRestModel usuarioDataRestModel=modelMapper.map(usuarioDto, UsuarioDataRestModel.class);
 
-            return usuarioDataRestModel;
-        }
+         //   return usuarioDataRestModel;
+        //}
     
     
     }

@@ -1,5 +1,5 @@
 package com.example.consulweb.services;
 
-public class MedicoService {
+public class MedicoService implements IMedicoService{
     
 }

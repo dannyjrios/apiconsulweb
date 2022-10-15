@@ -1,21 +1,13 @@
-package com.example.consulweb.models.respuestas;
+package com.example.consulweb.models.peticiones;
 
-public class UsuarioDataRestModel {
-    //Responder para enviar información al cliente en la parte front
-
-    private String idUsuario;
+public class UsuarioCrear {
+    //Recibir información
+    
     private String nombre;
     private String email;
     private String username;
+    private String password;
 
-
-    public String getIdUsuario() {
-        return this.idUsuario;
-    }
-
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
     public String getNombre() {
         return this.nombre;
@@ -32,6 +24,15 @@ public class UsuarioDataRestModel {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     public String getEmail() {
         return this.email;

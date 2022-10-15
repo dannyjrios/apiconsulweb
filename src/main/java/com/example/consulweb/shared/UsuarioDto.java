@@ -1,6 +1,8 @@
 package com.example.consulweb.shared;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioDto implements Serializable{
     //usuario intermediario entre la vista, el proceso y bd mapeado antes de enviar a la bd
@@ -14,7 +16,7 @@ public class UsuarioDto implements Serializable{
     private String username;
     private String password;
     private String passwordEncriptada;
-
+    private List<CitaDto> citaDtoMedicoList = new ArrayList<>();
 
 
     public long getId() {
@@ -41,6 +43,14 @@ public class UsuarioDto implements Serializable{
         this.nombre = nombre;
     }
 
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getUsername() {
         return this.username;
     }
@@ -65,13 +75,13 @@ public class UsuarioDto implements Serializable{
         this.passwordEncriptada = passwordEncriptada;
     }
 
-
-    public String getEmail() {
-        return this.email;
+    public List<CitaDto> getCitaDtoMedicoList() {
+        return this.citaDtoMedicoList;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCitaDtoMedicoList(List<CitaDto> citaDtoMedicoList) {
+        this.citaDtoMedicoList = citaDtoMedicoList;
     }
+
 
 }

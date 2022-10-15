@@ -1,5 +1,11 @@
 package com.example.consulweb.data.repositorios;
 
-public class ICitaRepository {
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.consulweb.data.entidades.CitaEntity;
+
+@Repository
+public interface ICitaRepository extends PagingAndSortingRepository<CitaEntity, Long> {
     
 }

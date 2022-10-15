@@ -6,8 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
 
-@Entity(name="usuario")
+@Entity(name ="usuario")
+@Table (indexes = {
+    @Index(columnList = "idUsuario", name = "index_idUsuario", unique = true),
+    @Index(columnList = "email", name = "index_email", unique = true),
+    @Index(columnList = "username", name = "index_username", unique = true),
+
+})
 public class UsuarioEntity implements Serializable{
 
     private static final long serialVersionUID=1L;
